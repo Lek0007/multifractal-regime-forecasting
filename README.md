@@ -40,7 +40,7 @@ The study covers multiple market events including:
 - Russia–Ukraine Conflict
 
 <p align="center">
-<img src="images/BDTI_Brent_TimeSeries.png" width="700">
+<img src="images/BDTI_Brent_TimeSeries.png" width="900">
 </p>
 
 ---
@@ -81,7 +81,7 @@ The inclusion of **Δα**, obtained from MF-DFA, enables the models to capture t
 The final forecasting performance comparison is shown below.
 
 <p align="center">
-<img src="images/Model_Results_Comparison.png" width="600">
+<img src="images/Model_Results_Comparison.png" width="500">
 </p>
 
 Among all evaluated models, **CatBoost achieved the best overall forecasting performance**, followed by Random Forest and LightGBM.
