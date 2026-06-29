@@ -40,7 +40,7 @@ The study covers multiple market events including:
 - Russia–Ukraine Conflict
 
 <p align="center">
-<img src="images/BDTI_Brent_TimeSeries.png" width="900">
+<img src="images/BDTI_Brent_TimeSeries.png" width="700">
 </p>
 
 ---
@@ -81,7 +81,7 @@ The inclusion of **Δα**, obtained from MF-DFA, enables the models to capture t
 The final forecasting performance comparison is shown below.
 
 <p align="center">
-<img src="images/Model_Results_Comparison.png" width="700">
+<img src="images/Model_Results_Comparison.png" width="600">
 </p>
 
 Among all evaluated models, **CatBoost achieved the best overall forecasting performance**, followed by Random Forest and LightGBM.
@@ -95,7 +95,7 @@ One of the main objectives of this work was to evaluate whether multifractal inf
 The figure below shows the percentage improvement in Mean Squared Error (MSE) obtained by incorporating multifractal features across different market regimes.
 
 <p align="center">
-<img src="images/MSE_Improvement_across_regimes_heatmap.png" width="750">
+<img src="images/MSE_Improvement_across_regimes_heatmap.png" width="600">
 </p>
 
 The results demonstrate that multifractal features provide meaningful improvements during several market regimes, particularly during periods of elevated volatility.
