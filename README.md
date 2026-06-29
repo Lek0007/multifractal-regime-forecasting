@@ -1,4 +1,6 @@
-# 📈 A Multifractal and Regime-Based Forecasting Framework for Brent Crude and BDTI Returns
+# 📈 Brent Crude Oil Forecasting Using Shipping Freight Rate Index (BDTI)
+
+### A Hybrid Multifractal and Regime-Based Machine Learning Framework
 
 > **A hybrid financial time series forecasting framework integrating Multifractal Detrended Fluctuation Analysis (MF-DFA), market regime detection, and ensemble machine learning models for forecasting Brent Crude Oil returns.**
 
