@@ -1,37 +1,24 @@
 # 📈 A Multifractal and Regime-Based Forecasting Framework for Brent Crude and BDTI Returns
 
-> **Hybrid financial time series forecasting using Multifractal Detrended Fluctuation Analysis (MF-DFA), market regime detection, and ensemble machine learning models.**
+> **A hybrid financial time series forecasting framework integrating Multifractal Detrended Fluctuation Analysis (MF-DFA), market regime detection, and ensemble machine learning models for forecasting Brent Crude Oil returns.**
 
 ---
 
 ## 📖 Overview
 
-Financial markets exhibit nonlinear and regime-dependent behavior, making accurate forecasting a challenging task.
+Financial markets exhibit nonlinear, non-stationary, and regime-dependent behavior, making accurate forecasting a challenging task.
 
-This project presents a hybrid forecasting framework that integrates **Multifractal Detrended Fluctuation Analysis (MF-DFA)**, **market regime detection**, and **ensemble machine learning models** to forecast **next-day Brent Crude Oil returns**.
+This project proposes a **hybrid forecasting framework** that combines **Multifractal Detrended Fluctuation Analysis (MF-DFA)**, **market regime detection**, and **ensemble machine learning algorithms** to predict **next-day Brent Crude Oil returns**.
 
-The framework combines traditional financial indicators with multifractal complexity measures to investigate how market dynamics influence forecasting performance under different market conditions.
+Unlike traditional forecasting approaches, this framework incorporates **multifractal complexity (Δα)** as a predictive feature and evaluates forecasting performance across different market regimes.
 
-This work was developed as part of my **Integrated MSc in Data Science thesis**.
-
----
-
-# 📌 Key Features
-
-- 📊 Financial Time Series Forecasting
-- 📈 Multifractal Detrended Fluctuation Analysis (MF-DFA)
-- 📉 Binary Segmentation for Market Regime Detection
-- 🌍 Brent Crude Oil & BDTI Analysis
-- 🤖 Ensemble Machine Learning Models
-- 📊 Feature Engineering
-- 📉 Regime-wise Performance Analysis
-- 📈 Volatility-Stratified Evaluation
+This work was completed as part of my **Integrated MSc in Data Science thesis**.
 
 ---
 
-# 🔄 Methodology
+# 🚀 Project Workflow
 
-The overall workflow of the proposed forecasting framework is shown below.
+The overall methodology followed in this project is illustrated below.
 
 <p align="center">
 <img src="images/methodology_workflow.png" width="900">
@@ -39,9 +26,18 @@ The overall workflow of the proposed forecasting framework is shown below.
 
 ---
 
-# 📊 Exploratory Data Analysis
+# 📊 Dataset
 
-### Brent Crude Oil and BDTI Time Series
+The project utilizes historical daily observations of:
+
+- Brent Crude Oil Prices
+- Baltic Dirty Tanker Index (BDTI)
+
+The study covers multiple market events including:
+
+- 2014 Oil Price Crash
+- COVID-19 Market Shock
+- Russia–Ukraine Conflict
 
 <p align="center">
 <img src="images/BDTI_Brent_TimeSeries.png" width="900">
@@ -51,74 +47,66 @@ The overall workflow of the proposed forecasting framework is shown below.
 
 # 🧩 Feature Engineering
 
-The forecasting framework uses lagged financial variables together with multifractal features extracted using MF-DFA.
+Three progressively enriched feature configurations were evaluated.
 
-<p align="center">
-<img src="images/feature_description.png" width="700">
-</p>
-
-Three feature configurations were evaluated.
-
-| Model | Features |
-|--------|----------|
+| Configuration | Features |
+|--------------|----------|
 | **Model A** | Brent Return Lag₁ |
 | **Model B** | Brent Return Lag₁ + BDTI Return Lag₁ |
-| **Model C** | Brent Return Lag₁ + BDTI Return Lag₁ + Δα Lag₁ |
+| **Model C** | Brent Return Lag₁ + BDTI Return Lag₁ + Multifractal Spectrum Width (Δα) Lag₁ |
+
+The inclusion of **Δα**, obtained from MF-DFA, enables the models to capture the evolving complexity of financial markets.
 
 ---
 
-# 🤖 Machine Learning Models
+# 🤖 Forecasting Models
 
-The following forecasting models were implemented and compared.
-
-### Ensemble Models
+### Machine Learning Models
 
 - Random Forest
 - XGBoost
 - LightGBM
 - CatBoost
-
-### Baseline Models
-
 - Linear Regression
+
+### Statistical Models
+
 - ARIMA
 - GARCH
 
 ---
 
-# 📈 Feature Importance
+# 📈 Model Performance
 
-Feature importance obtained from the Random Forest model.
-
-<p align="center">
-<img src="images/Feature_importance.png" width="700">
-</p>
-
----
-
-# 📊 Model Performance Comparison
-
-Performance comparison of all forecasting models.
+The final forecasting performance comparison is shown below.
 
 <p align="center">
 <img src="images/Model_Results_Comparison.png" width="700">
 </p>
 
+Among all evaluated models, **CatBoost achieved the best overall forecasting performance**, followed by Random Forest and LightGBM.
+
 ---
 
-# 📉 Regime-wise Performance
+# 🌍 Regime-wise Analysis
 
-Performance improvement obtained by incorporating multifractal information across different market regimes.
+One of the main objectives of this work was to evaluate whether multifractal information improves forecasting under different market conditions.
+
+The figure below shows the percentage improvement in Mean Squared Error (MSE) obtained by incorporating multifractal features across different market regimes.
 
 <p align="center">
-<img src="images/MSE_Improvement_across_regimes_h.png" width="800">
+<img src="images/MSE_Improvement_across_regimes_heatmap.png" width="750">
 </p>
+
+The results demonstrate that multifractal features provide meaningful improvements during several market regimes, particularly during periods of elevated volatility.
+
+> **Note:** Replace the filename above (`MSE_Improvement_across_regimes_heatmap.png`) with the exact filename from your repository if it differs.
 
 ---
 
-# 📈 Evaluation Metrics
+# 📊 Evaluation Metrics
 
-Models were evaluated using:
+The forecasting models were evaluated using:
 
 - Mean Squared Error (MSE)
 - Root Mean Squared Error (RMSE)
@@ -182,7 +170,7 @@ Move into the project directory
 cd multifractal-regime-forecasting-for-crude-oil
 ```
 
-Install dependencies
+Install the required dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -204,47 +192,35 @@ Run all cells sequentially.
 
 ---
 
-# 📁 Dataset
+# 📁 Repository Contents
 
-The project utilizes historical daily observations of:
-
-- Brent Crude Oil Prices
-- Baltic Dirty Tanker Index (BDTI)
-
-The dataset included in this repository is intended for academic and research purposes.
-
----
-
-# 📄 Documentation
-
-The `docs/` directory contains:
-
-- 📘 Integrated MSc Thesis Report
-- 📄 Research Manuscript (Unpublished)
-
-Both documents describe the complete methodology, experiments, and findings.
+- 📓 Complete implementation in Jupyter Notebook
+- 📊 Dataset used for the study
+- 📄 MSc Thesis Report
+- 📝 Research Manuscript (Unpublished)
+- 📈 Figures and visualizations
 
 ---
 
 # 🎯 Key Contributions
 
-- Developed a hybrid forecasting framework integrating MF-DFA with machine learning.
+- Developed a hybrid forecasting framework integrating MF-DFA with ensemble machine learning.
 - Engineered multifractal spectrum width (Δα) as a predictive feature.
-- Detected structural market regimes using Binary Segmentation.
-- Compared ensemble learning algorithms with classical statistical forecasting models.
-- Evaluated forecasting performance under different market regimes and volatility conditions.
+- Applied Binary Segmentation for market regime detection.
+- Compared machine learning models with classical statistical forecasting approaches.
+- Performed regime-wise evaluation to analyze forecasting robustness under different market conditions.
 
 ---
 
 # 🔮 Future Work
 
-Potential extensions include:
+Possible extensions include:
 
-- LSTM and Transformer-based forecasting
-- Explainable AI using SHAP
+- Deep Learning models (LSTM, GRU, Transformer)
+- Explainable AI (SHAP/LIME)
 - Bayesian Hyperparameter Optimization
-- Real-time forecasting dashboard
-- Live financial data integration
+- Real-time forecasting pipeline
+- Interactive dashboard deployment
 
 ---
 
@@ -258,4 +234,4 @@ GitHub: https://github.com/Lek0007
 
 ---
 
-## ⭐ If you found this project interesting, consider giving it a star!
+## ⭐ If you found this project useful, consider giving it a star!
