@@ -21,7 +21,7 @@ This work was completed as part of my **Integrated MSc in Data Science thesis**.
 The overall methodology followed in this project is illustrated below.
 
 <p align="center">
-<img src="images/methodology_workflow.png" width="900">
+<img src="images/methodology workflow.png" width="900">
 </p>
 
 ---
