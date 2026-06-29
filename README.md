@@ -6,99 +6,119 @@
 
 ## 📖 Overview
 
-Financial markets exhibit nonlinear, non-stationary, and regime-dependent behavior, making accurate forecasting a challenging task.
+Financial markets exhibit nonlinear and regime-dependent behavior, making accurate forecasting a challenging task.
 
-This project presents a hybrid forecasting framework that combines **multifractal analysis**, **market regime detection**, and **ensemble machine learning models** to predict **next-day Brent Crude Oil returns** using historical Brent Crude prices and the Baltic Dirty Tanker Index (BDTI).
+This project presents a hybrid forecasting framework that integrates **Multifractal Detrended Fluctuation Analysis (MF-DFA)**, **market regime detection**, and **ensemble machine learning models** to forecast **next-day Brent Crude Oil returns**.
 
-The implementation was developed as part of my **Integrated MSc in Data Science thesis** and investigates the effectiveness of multifractal features across different market regimes.
+The framework combines traditional financial indicators with multifractal complexity measures to investigate how market dynamics influence forecasting performance under different market conditions.
 
----
-
-## 🎯 Objectives
-
-- Forecast next-day Brent Crude Oil returns.
-- Extract multifractal characteristics using MF-DFA.
-- Detect structural market regimes using Binary Segmentation.
-- Engineer predictive features from Brent returns, BDTI returns, and multifractal spectrum width (Δα).
-- Compare traditional statistical models with modern machine learning approaches.
-- Evaluate forecasting performance across different market conditions.
+This work was developed as part of my **Integrated MSc in Data Science thesis**.
 
 ---
 
-## 🔄 Project Workflow
+# 📌 Key Features
 
-```text
-Raw Brent Crude & BDTI Data
-            │
-            ▼
-     Data Cleaning
-            │
-            ▼
-  Log Return Computation
-            │
-            ▼
- Exploratory Data Analysis
-            │
-            ▼
- Rolling Volatility Analysis
-            │
-            ▼
- MF-DFA (Multifractal Analysis)
-            │
-            ▼
- Rolling Δα Computation
-            │
-            ▼
- Binary Segmentation
- (Market Regime Detection)
-            │
-            ▼
- Feature Engineering
-            │
-            ▼
- Machine Learning Models
-            │
-            ▼
- Performance Evaluation
-            │
-            ▼
- Regime-wise Analysis
-```
+- 📊 Financial Time Series Forecasting
+- 📈 Multifractal Detrended Fluctuation Analysis (MF-DFA)
+- 📉 Binary Segmentation for Market Regime Detection
+- 🌍 Brent Crude Oil & BDTI Analysis
+- 🤖 Ensemble Machine Learning Models
+- 📊 Feature Engineering
+- 📉 Regime-wise Performance Analysis
+- 📈 Volatility-Stratified Evaluation
 
 ---
 
-## 🤖 Models Implemented
+# 🔄 Methodology
 
-### Machine Learning Models
+The overall workflow of the proposed forecasting framework is shown below.
+
+<p align="center">
+<img src="images/methodology_workflow.png" width="900">
+</p>
+
+---
+
+# 📊 Exploratory Data Analysis
+
+### Brent Crude Oil and BDTI Time Series
+
+<p align="center">
+<img src="images/BDTI_Brent_TimeSeries.png" width="900">
+</p>
+
+---
+
+# 🧩 Feature Engineering
+
+The forecasting framework uses lagged financial variables together with multifractal features extracted using MF-DFA.
+
+<p align="center">
+<img src="images/feature_description.png" width="700">
+</p>
+
+Three feature configurations were evaluated.
+
+| Model | Features |
+|--------|----------|
+| **Model A** | Brent Return Lag₁ |
+| **Model B** | Brent Return Lag₁ + BDTI Return Lag₁ |
+| **Model C** | Brent Return Lag₁ + BDTI Return Lag₁ + Δα Lag₁ |
+
+---
+
+# 🤖 Machine Learning Models
+
+The following forecasting models were implemented and compared.
+
+### Ensemble Models
 
 - Random Forest
 - XGBoost
 - LightGBM
 - CatBoost
+
+### Baseline Models
+
 - Linear Regression
-
-### Statistical Models
-
 - ARIMA
 - GARCH
 
 ---
 
-## 📊 Feature Configurations
+# 📈 Feature Importance
 
-Three progressively enriched feature sets were evaluated.
+Feature importance obtained from the Random Forest model.
 
-| Model | Features |
-|--------|----------|
-| Model A | Brent Return Lag₁ |
-| Model B | Brent Return Lag₁ + BDTI Return Lag₁ |
-| Model C | Brent Return Lag₁ + BDTI Return Lag₁ + Multifractal Spectrum Width (Δα) Lag₁ |
+<p align="center">
+<img src="images/Feature_importance.png" width="700">
+</p>
 
 ---
 
-## 📈 Evaluation Metrics
+# 📊 Model Performance Comparison
 
-Model performance is evaluated using
+Performance comparison of all forecasting models.
+
+<p align="center">
+<img src="images/Model_Results_Comparison.png" width="700">
+</p>
+
+---
+
+# 📉 Regime-wise Performance
+
+Performance improvement obtained by incorporating multifractal information across different market regimes.
+
+<p align="center">
+<img src="images/MSE_Improvement_across_regimes_h.png" width="800">
+</p>
+
+---
+
+# 📈 Evaluation Metrics
+
+Models were evaluated using:
 
 - Mean Squared Error (MSE)
 - Root Mean Squared Error (RMSE)
@@ -106,7 +126,7 @@ Model performance is evaluated using
 
 ---
 
-## 🛠 Technologies Used
+# 🛠 Technologies Used
 
 - Python
 - Jupyter Notebook
@@ -124,7 +144,7 @@ Model performance is evaluated using
 
 ---
 
-## 📂 Repository Structure
+# 📂 Repository Structure
 
 ```text
 multifractal-regime-forecasting-for-crude-oil/
@@ -142,15 +162,13 @@ multifractal-regime-forecasting-for-crude-oil/
 │   └── multifractal_regime_forecasting.ipynb
 │
 ├── requirements.txt
-│
 ├── .gitignore
-│
 └── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
 Clone the repository
 
@@ -164,7 +182,7 @@ Move into the project directory
 cd multifractal-regime-forecasting-for-crude-oil
 ```
 
-Install the dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -186,60 +204,58 @@ Run all cells sequentially.
 
 ---
 
-## 📁 Dataset
+# 📁 Dataset
 
-This project uses
+The project utilizes historical daily observations of:
 
-- Brent Crude Oil historical prices
+- Brent Crude Oil Prices
 - Baltic Dirty Tanker Index (BDTI)
 
-The data used in this repository is intended for academic and research purposes.
+The dataset included in this repository is intended for academic and research purposes.
 
 ---
 
-## 📄 Research Documentation
+# 📄 Documentation
 
-The repository includes
+The `docs/` directory contains:
 
-- MSc Thesis Report
-- Research Manuscript (Unpublished)
+- 📘 Integrated MSc Thesis Report
+- 📄 Research Manuscript (Unpublished)
 
 Both documents describe the complete methodology, experiments, and findings.
 
 ---
 
-## 📌 Key Highlights
+# 🎯 Key Contributions
 
-- Hybrid forecasting framework combining multifractal analysis and machine learning.
-- Market regime detection using Binary Segmentation.
-- Rolling MF-DFA feature extraction.
-- Ensemble learning with multiple tree-based algorithms.
-- Regime-wise forecasting performance evaluation.
-- Comparative analysis against traditional statistical forecasting models.
-
----
-
-## 🔮 Future Improvements
-
-Potential extensions include
-
-- Deep Learning models (LSTM, GRU, Transformer)
-- Attention-based forecasting
-- Real-time prediction pipeline
-- Explainable AI (SHAP/LIME)
-- Hyperparameter optimization using Bayesian Optimization
-- Deployment as an interactive dashboard
+- Developed a hybrid forecasting framework integrating MF-DFA with machine learning.
+- Engineered multifractal spectrum width (Δα) as a predictive feature.
+- Detected structural market regimes using Binary Segmentation.
+- Compared ensemble learning algorithms with classical statistical forecasting models.
+- Evaluated forecasting performance under different market regimes and volatility conditions.
 
 ---
 
-## 👨‍💻 Author
+# 🔮 Future Work
+
+Potential extensions include:
+
+- LSTM and Transformer-based forecasting
+- Explainable AI using SHAP
+- Bayesian Hyperparameter Optimization
+- Real-time forecasting dashboard
+- Live financial data integration
+
+---
+
+# 👨‍💻 Author
 
 **L V**
 
-Integrated MSc Data Science
+Integrated MSc in Data Science
 
 GitHub: https://github.com/Lek0007
 
 ---
 
-## ⭐ If you found this project useful, consider giving it a star!
+## ⭐ If you found this project interesting, consider giving it a star!
